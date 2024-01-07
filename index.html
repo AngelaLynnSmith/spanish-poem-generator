@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +15,11 @@
     </header>
 
     <main>
+        <div class="form-container">
         <form id="poem-generator-form">
-            <input type="text" 
-            placeholder="Enter the topic of the Spanish poem" 
+            <input 
+            type="text" 
+            placeholder="Enter a topic for a Spanish poem." 
             autofocus
             required
             autocomplete="off"
@@ -27,7 +28,9 @@
             />
             <input type="submit" class="submit-button" />
         </form>
-        <div class="poem" id="poem"></div>
+        <div class="hint">i.e.: flowers, nature, seasons</div>
+        </div>
+        <div class="poem hidden" id="poem"></div>
     </main>
 
     <footer>

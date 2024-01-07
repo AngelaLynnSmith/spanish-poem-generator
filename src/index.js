@@ -7,15 +7,20 @@ new Typewriter("#poem", {
 });
 }
 
+
 function generatePoem(event)  {
     event.preventDefault();
 
     let userInput = document.querySelector("#user-input");
     let apiKey = "cc8ad09bc07492ceeb391dfbot84812f";
     let context = 
-    "You are a romantic poem expert and love to write short poems. Generate a 4 line poem in basic HTML format. You must follow the user instructions. Do not include a title for the poem. Sign the poem with 'SheCodes AI' inside a <stong> element at the end of the poem.";
-    let prompt = `User instructions: Generate a Spanish poem about${userInput}`;
+    "Create a unique 4-line romantic poem on user-specified topics. Display the poem in basic HTML format. Do not include a title. Always conclude with 'SheCodes AI' enclosed in a <strong> element, following user instructions.";
+    let prompt = `User instructions: Generate a Spanish poem about ${userInput}`;
 	let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
+
+let poemElement = document.querySelector("#poem");
+poemElement.classList.remove("hidden");
+poemElement.innerHTML = `<div class="generating">⏳️ Generating a Spanish poem about ${userInput.value} 🌹</div>`;
 
 
     axios.get(apiUrl).then(displayPoem);
